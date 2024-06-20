@@ -34,7 +34,6 @@ let registerValidations = [
   //falta poner que este en forma encriptada hashing hppt
 ];
 
-// router.post("/store", registerValidations, indexController.processRegister);
 /* GET users listing. */
 router.get("/login", userController.index);
 
@@ -45,6 +44,8 @@ router.post("/logout", userController.logout);
 router.get("/register", userController.register);
 
 router.get("/profile", userController.profile);
+
+router.post("/store", registerValidations, userController.store);
 
 router.get("/profile-edit", userController.profileEdit);
 

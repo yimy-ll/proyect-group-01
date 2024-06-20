@@ -1,4 +1,4 @@
-const db = require("../database/models/Usuario");
+const db = require("../database/models");
 const bcrypt = require("bcryptjs");
 
 const userController = {
@@ -9,10 +9,10 @@ const userController = {
     res.render("login");
   },
   register: function (req, res) {
-    if (req.session.usuario !== undefined) {
+    if (req.session !== undefined && req.session.usuario !== undefined) {
       return res.redirect("/profile");
     }
-    res.render("register");
+    res.render("register", { usuario: undefined });
   },
   profile: function (req, res) {
     res.render("profile", { usuario: db.usuario });
@@ -21,15 +21,17 @@ const userController = {
     res.render("profile-edit");
   },
   store: function (req, res) {
-    const encriptada = bcrypt.hashSync(req.body.password, 10);
+    const encriptada = bcrypt.hashSync(req.body.contrasenia, 10);
     let usuario = {
-      nombre: req.body.nombre,
-      apellido: req.body.apellido,
       email: req.body.email,
-      password: encriptada,
+      contrasenia: encriptada,
+      usuario: req.body.usuario,
+      dni: req.body.doc,
+      fecha: req.body.fecha,
+      fotoPerfil: req.body.fotoPerfil,
     };
     db.Usuario.create(usuario);
-    res.redirect("/profile");
+    res.redirect("/");
   },
   login: function (req, res) {
     db.Usuario.findOne({
