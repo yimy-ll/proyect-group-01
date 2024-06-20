@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 var userController = require("../controllers/usersController");
 let { body } = require("express-validator");
+const indexController = require("../controllers/indexController");
 
 let registerValidations = [
   body("email") //vas a login ejs y te fijas el nombre del campo
@@ -33,7 +34,7 @@ let registerValidations = [
   //falta poner que este en forma encriptada hashing hppt
 ];
 
-router.post("/store", registerValidations, indexController.processRegister);
+// router.post("/store", registerValidations, indexController.processRegister);
 /* GET users listing. */
 router.get("/login", userController.index);
 
