@@ -1,14 +1,13 @@
-
 const db = require("../database/models/Usuario");
 const bcrypt = require("bcryptjs");
 
 const userController = {
-  index: function(req,res){
-    if(req.session.usuario === undefined){
+  index: function (req, res) {
+    if (req.session.usuario === undefined) {
       return res.redirect("/register");
     }
-    res.render("login")
-  }, 
+    res.render("login");
+  },
   register: function (req, res) {
     if (req.session.usuario !== undefined) {
       return res.redirect("/profile");
@@ -32,28 +31,28 @@ const userController = {
     db.Usuario.create(usuario);
     res.redirect("/profile");
   },
-  login: function(req,res){
+  login: function (req, res) {
     db.Usuario.findOne({
       where: {
         email: req.body.email,
       },
-    }).then(function(usuario){
-      if (usuario){
+    }).then(function (usuario) {
+      if (usuario) {
         if (bcrypt.compareSync(req.body.password, usuario.password)) {
           req.session.usuario = usuario;
-          if(req.body.remember){
-            res.cookie("user", usuario.id, {maxAge: 1000 * 60 * 60 * 24}) //24 horas de vida
+          if (req.body.remember) {
+            res.cookie("user", usuario.id, { maxAge: 1000 * 60 * 60 * 24 }); //24 horas de vida
           }
           res.redirect("/profile");
         } else {
           res.send("contraseña incorrecta");
         }
       } else {
-        res.send("el mail no se encuentra registrado")
+        res.send("el mail no se encuentra registrado");
       }
-    })
-  }, 
-  logout: function (req,res){
+    });
+  },
+  logout: function (req, res) {
     req.session.destroy();
     res.clearCookie("user");
     res.redirect("/");
