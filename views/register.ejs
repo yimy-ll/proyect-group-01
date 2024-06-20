@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+
+<%- include('partials/head') %>
+
+<body>
+	<!-- Header -->
+
+	<%-include('partials/header')%>
+
+	<!-- /Header -->
+
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Registrate</h2>
+			</div>
+			<!-- Show the "ultimos" products -->
+			<!-- <h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario de registro. <br>
+			Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos <br>
+			Eliminen estás líneas y coloquen el formulario. <br>
+			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
+			//////////////// -->
+			</h2>
+
+
+			<div class="container products-wrapper">
+				<div class="row">
+					<div class="col-12">
+						<h2 class="products-title">Registrate</h2>
+					</div>
+					<form action="/store" method="post">
+						<label for="email" class="label">Email</label>
+						<input class="form-input" type="email" name="email" placeholder="Email" required>
+						<label for="usuario" class="label">Usuario</label>
+						<input class="form-input" type="text" name="usuario" placeholder="Usuario" required>
+						<label for="contrasenia" class="label">Contraseña</label>
+						<input class="form-input" type="password" name="contrasenia" id="contrasenia" placeholder="Contraseña" required minlength="4">
+						<label for="fecha" class="label">Fecha de nacimiento</label>
+						<input class="form-input" type="date" name="fecha">
+						<label for="dni" class="label">Número de documento</label>
+						<input class="form-input" type="number" name="doc">
+			
+						<label for="fotoPerfil" class="label">Foto de perfil</label>
+						<input class="form-input" type="text" name="fotoPerfil">
+			
+						<button class="form-label" type="submit">Registrarse</button>
+					</form>    
+				</div>
+			</div>
+
+	<!-- footer -->
+
+	<%-include('partials/footer')%>
+
+	<!-- /footer -->
+</body>
+
+</html>
