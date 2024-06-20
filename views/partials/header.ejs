@@ -10,12 +10,7 @@
 
       <div class="col-7 col-md-6">
         <form action="" method="GET" class="search-form">
-          <input
-            type="text"
-            name="search"
-            placeholder="Buscar productos, marcas y más"
-            class="search-form_input"
-          />
+          <input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input" />
           <button type="submit" class="search-form_button">
             <i class="fas fa-search"></i>
           </button>
@@ -40,8 +35,8 @@
         <!-- solo logueado <li><a href="">Cargar productos</a></li> -->
       </ul>
 
-      
-        <!-- Solo logueado <li><a href="profile.html">
+
+      <!-- Solo logueado <li><a href="profile.html">
           Nombre del usuario <i class="fas fa-user"></i>
         </a>
       </li>
@@ -53,33 +48,31 @@
         </form>
       </li> -->
       <ul class="right-navbar">
-      <% if (usuario) { %>
-      
-        <li>
-          <a href="/profile">
-            <%= usuario.nombre %> <i class="fas fa-user"></i>
-          </a>
-        </li>
-        <li>
-          <form action="/logout" method="post">
-            <button class="logout" type="submit">
-              Cerrar sesion <i class="fas fa-sign-in-alt"></i>
-            </button>
-          </form>
-        </li>
-      </ul>
-      <% } else { %>
+        <% if (usuario) { %>
 
+          <li>
+            <a href="/profile">
+              <%= usuario.nombre %> <i class="fas fa-user"></i>
+            </a>
+          </li>
+          <li>
+            <form action="/logout" method="post">
+              <button class="logout" type="submit">
+                Cerrar sesion <i class="fas fa-sign-in-alt"></i>
+              </button>
+            </form>
+          </li>
+      </ul>
+      <% } else{ %>
         <li>
-          <a href="/register"
-            >Creá tu cuenta <i class="far fa-address-card"></i>
+          <a href="/register">Creá tu cuenta <i class="far fa-address-card"></i>
           </a>
         </li>
         <li>
           <a href="/login">Ingresá <i class="fas fa-sign-in-alt"></i></a>
         </li>
-      </ul>
+        <% } %>
+          </ul>
     </nav>
   </div>
 </header>
-  
