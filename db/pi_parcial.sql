@@ -6,6 +6,7 @@ CREATE TABLE usuarios(
     contrasenia VARCHAR(250),
     fecha date,
     dni int,
+    usuario VARCHAR(250),
     fotoPerfil VARCHAR(250),
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

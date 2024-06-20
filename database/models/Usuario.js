@@ -10,7 +10,7 @@ module.exports = (sequelize, dataTypes) => {
     email: {
       type: dataTypes.STRING,
     },
-    Usuario: {
+    usuario: {
       type: dataTypes.STRING,
     },
       contrasenia: {
